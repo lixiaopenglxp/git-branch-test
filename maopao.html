@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="">
+<meta name="copyright" content="">
+<title></title>
+<style>
+#div1{ width:500px; height:500px; background:red;}
+#div2{ width:300px; height:300px; background:blue;}
+#div3{ width:200px; height:200px; background:yellow; font-size:50px; color:#000;}
+</style>
+<script>
+window.onload=function(){
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');	
+	
+	// oDiv1.onclick=function(){
+	// 	alert(this.id);	
+	// };
+	
+	// oDiv2.onclick=function(ev){
+	// 	var oEvent=ev||event;
+	// 	alert(this.id);	
+	// 	//oEvent.cancelBubble=true;	//阻止冒泡
+	// };
+	
+	// oDiv3.onclick=function(ev){
+	// 	var oEvent=ev||event;
+	// 	alert(this.id);	
+	// 	//oEvent.cancelBubble=true;
+		
+	// };
+	oDiv1.addEventListener('click',function(event){
+		alert(this.id)
+		
+	},false)
+	oDiv2.addEventListener('click',function(event){
+		alert(this.id)
+		event.cancelBubble=true;	//阻止冒泡
+	},false)
+	oDiv3.addEventListener('click',function(){
+		alert(this.id)
+		event.stopPropagation();
+	},false)
+};
+</script>
+</head>
+<body>
+<div id="div1">
+	<div id="div2" id="div2">
+    	<div id="div3">div3</div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
